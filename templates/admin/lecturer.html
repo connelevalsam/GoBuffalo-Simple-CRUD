@@ -1,0 +1,244 @@
+
+	<script type="text/javascript">
+		
+	function hideDivs() {
+		// body...
+		cLectDiv.style.display = 'none';
+		eLectDiv.style.display = 'none';
+		dLectDiv.style.display = 'none';
+	}
+	</script>
+<main class="w-100 flex flex-column min-vh-100">
+	<header class="w-100 bg-black pv2 ph2 ph5-ns">
+		<div class="w-50 dib">
+			<a href="lecturer.html" class="f6 f2-ns fw3 fw6-ns hover-white link pointer washed-blue dib">Staff Manager</a>
+		</div><div class="w-50 dib tr">
+			<a class="f6 fw3 fw6-ns dim pointer white-80 mr3-m mr4-l dib">Hi admin!</a>
+			<a href="/admin-login" class="f6 fw3 fw6-ns hover-white link pointer washed-blue mr3-m mr4-l dib">Logout</a>
+		</div>
+	</header>
+	<section class="w-100 tc cover flex-auto flex flex-column flex-row-ns bg-light-gray" style="background-image: url(../img/lecturer.jpg);">
+		<div class="w-100 w-30-ns">
+			<div class="ph2 ph4-ns pt2">
+				<div class="pv1"><a class="grow link pointer washed-blue create-lecturer">Add Lecturer</a></div>
+				<div class="pv1"><a class="grow link pointer washed-blue edit-lecturer">Edit Lecturer</a></div>
+				<div class="pv1"><a class="grow link pointer washed-blue delete-lecturer">Remove Lecturer</a></div>
+				<div class="pv1"><a href="/admin-student" class="grow link pointer washed-blue no-underline">Student =></a></div>
+				<div class="pt4"><a href="/admin-transfer" class="pa2 br2 bg-yellow f4-ns fw3-ns grow link pointer black-80 no-underline">Transfer</a></div>
+			</div>
+		</div>
+		<div class="w-100 w-70-ns default-div">
+		    <h1>List Lecturers</h1>
+		    <hr>
+		    <p id="counter"></p>
+			<table>
+			    <tr>
+			        <th>Name</th>
+			    </tr>
+			    <tbody id="countries">
+			    </tbody>
+			</table>
+		</div>
+		<div class="w-100 w-70-ns add-lecturer">
+		    <h1>Add Lecturer</h1>
+			<div class="tc w-100">
+				<div class="dib w-80">
+					<form name="creating" method="post" action="/">
+						<input type="text" class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter username" name="uname" required><br>
+
+						<input type="password" class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter password" name="pword" required><br>
+
+						<input type="text" class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter first name" name="fname" required><br>
+
+						<input type="text" class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter last name" name="lname" required><br>
+
+						<textarea class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter description" name="des" required></textarea><br>
+						
+						<input type="email" class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter e-mail" name="mail" required><br>
+
+						<select size="1" name="ranks" class="w-100 br2 b--black-10 pv2 mv2">
+							<option disabled>Select Rank</option>
+							<option>Professor</option>
+							<option>Asso. Professor</option>
+							<option>Senior Lecturer</option>
+							<option>Lecturer 1</option>
+							<option>Lecturer 2</option>
+							<option>Assit. Lecturer</option>
+							<option>Graduate Assit.</option>
+						</select><br>
+
+						<h3>Units</h3>
+
+						<select size="1" name="programmes" class="w-100 br2 b--black-10 pv2 mv2">
+							<option disabled>Select Programmes</option>
+							<option>HnD.</option>
+							<option>BsC.</option>
+							<option>Masters</option>
+							<option>PhD.</option>
+						</select><br>
+
+						<select size="1" name="faculties" class="w-100 br2 b--black-10 pv2 mv2">
+							<option disabled>Select Faculties</option>
+							<option>Agriculture</option>
+							<option>Arts</option>
+							<option>Science</option>
+							<option>Medicine</option>
+						</select><br>
+
+						<select size="1" name="departments" class="w-100 br2 b--black-10 pv2 mv2">
+							<option disabled>Select Departments</option>
+							<option>Agric. Science</option>
+							<option>Soil Science</option>
+							<option>Agric. Economics</option>
+							<option>Agric. Extension</option>
+							<option>Music</option>
+							<option>Fine &amp; Applied Arts</option>
+						</select><br>
+
+						<button type="submit" class="pointer grow bg-green white bn br2 pa2">Login</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="w-100 w-70-ns update-lecturer">
+		    <h1>Edit Lecturer</h1>
+			<div class="tc w-100">
+				<div class="dib w-80">
+					<form name="editing" method="post" action="/">
+						<input type="text" class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter new username" name="uname" required><br>
+
+						<input type="password" class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter new password" name="pword" required><br>
+
+						<input type="text" class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter new first name" name="fname" required><br>
+
+						<input type="text" class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter new last name" name="lname" required><br>
+
+						<textarea class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter new description" name="des" required></textarea><br>
+						
+						<input type="email" class="w-100 br2 b--black-10 pv2 mv2" placeholder="enter new e-mail" name="mail" required><br>
+
+						<select size="1" name="ranks" class="w-100 br2 b--black-10 pv2 mv2">
+							<option disabled>Select Rank</option>
+							<option>Professor</option>
+							<option>Asso. Professor</option>
+							<option>Senior Lecturer</option>
+							<option>Lecturer 1</option>
+							<option>Lecturer 2</option>
+							<option>Assit. Lecturer</option>
+							<option>Graduate Assit.</option>
+						</select><br>
+
+						<h3>Edit Units</h3>
+
+						<select size="1" name="programmes" class="w-100 br2 b--black-10 pv2 mv2">
+							<option disabled>Select Programmes</option>
+							<option>HnD.</option>
+							<option>BsC.</option>
+							<option>Masters</option>
+							<option>PhD.</option>
+						</select><br>
+
+						<select size="1" name="faculties" class="w-100 br2 b--black-10 pv2 mv2">
+							<option disabled>Select Faculties</option>
+							<option>Agriculture</option>
+							<option>Arts</option>
+							<option>Science</option>
+							<option>Medicine</option>
+						</select><br>
+
+						<select size="1" name="departments" class="w-100 br2 b--black-10 pv2 mv2">
+							<option disabled>Select Departments</option>
+							<option>Agric. Science</option>
+							<option>Soil Science</option>
+							<option>Agric. Economics</option>
+							<option>Agric. Extension</option>
+							<option>Music</option>
+							<option>Fine &amp; Applied Arts</option>
+						</select><br>
+
+						<button type="submit" class="pointer grow bg-green white bn br2 pa2">edit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="w-100 w-70-ns remove-lecturer">
+		    <h1 class="tl">Remove Lecturer</h1>
+			<div class="w-100 tc">
+				<form class="w-80 w-50-ns">
+					<select size="1" name="ranks" class="w-100 br2 b--black-10 pv2 mv2">
+						<option disabled>Select Lecturer</option>
+						<option>Bassey</option>
+						<option>Okon</option>
+					</select><br>
+
+			        <button type="submit" class="pointer grow bg-green white bn br2 pa2">delete</button>
+				</form>
+			</div>
+		</div>
+	</section>
+	<footer class="w-100 tc bg-light-grey">
+		<div class="mt5-ns mb2-ns">
+			<a href="/admin-login" class="f6 fw3 fw6-ns hover-blue link pointer black-80 mr2 mr3-ns dib">Logout</a>
+		</div>
+		<div>
+			<span><small>© 2017</small> <a>cb_net</a></span>
+		</div>
+	</footer>
+</main>
+<script type="text/javascript">
+    let dDiv     = document.querySelector('.default-div');
+    let cLect    = document.querySelector('.create-lecturer');
+	let eLect    = document.querySelector('.edit-lecturer');
+	let dLect    = document.querySelector('.delete-lecturer');
+	let cLectDiv = document.querySelector('.add-lecturer');
+	let eLectDiv = document.querySelector('.update-lecturer');
+	let dLectDiv = document.querySelector('.remove-lecturer');
+
+	function displayCdivs() {
+		// body...
+		if (cLectDiv.style.display === 'none') {
+			dDiv.style.display = 'none';
+	        eLectDiv.style.display = 'none';
+	        dLectDiv.style.display = 'none';
+	        var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+			var string_length = 20;
+			var randomstring = '';
+			for (var i=0; i<string_length; i++) {
+				var rnum = Math.floor(Math.random() * chars.length);
+				randomstring += chars.substring(rnum,rnum+1);
+			}
+			document.creating.pword.value = randomstring;
+	        cLectDiv.style.display = 'block';
+	    }
+	}
+	function displayEdivs() {
+		// body...
+		if (eLectDiv.style.display === 'none') {
+	        var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+			var string_length = 20;
+			var randomstring = '';
+			for (var i=0; i<string_length; i++) {
+				var rnum = Math.floor(Math.random() * chars.length);
+				randomstring += chars.substring(rnum,rnum+1);
+			}
+			document.editing.pword.value = randomstring;
+	        dDiv.style.display = 'none';
+	        cLectDiv.style.display = 'none';
+	        dLectDiv.style.display = 'none';
+	        eLectDiv.style.display = 'block';
+	    }
+	}
+	function displayDdivs() {
+		// body...
+		if (dLectDiv.style.display === 'none') {
+	        dDiv.style.display = 'none';
+	        cLectDiv.style.display = 'none';
+	        eLectDiv.style.display = 'none';
+	        dLectDiv.style.display = 'block';
+	    }
+	}
+
+	cLect.addEventListener('click', displayCdivs)
+	eLect.addEventListener('click', displayEdivs)
+	dLect.addEventListener('click', displayDdivs)
+</script>

@@ -1,0 +1,37 @@
+<h1>Lecturers</h1>
+<p>
+  <a href="<%= newLecturersPath() %>" class="btn btn-primary">Create New Lecturer</a>
+</p>
+
+<table class="table table-striped">
+  <thead>
+  <th>School</th>
+    <th>FullName</th>
+    <th>Email</th>
+    <th>Department</th>
+    <th>Age</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (lecturer) in lecturers { %>
+      <tr>
+      <td><%= lecturer.School %></td>
+        <td><%= lecturer.FullName %></td>
+        <td><%= lecturer.Email %></td>
+        <td><%= lecturer.Department %></td>
+        <td><%= lecturer.Age %></td>
+        <td>
+          <div class="pull-right">
+            <a href="<%= lecturerPath({ lecturer_id: lecturer.ID }) %>" class="btn btn-info">View</a>
+            <a href="<%= editLecturerPath({ lecturer_id: lecturer.ID }) %>" class="btn btn-warning">Edit</a>
+            <a href="<%= lecturerPath({ lecturer_id: lecturer.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>

@@ -1,0 +1,6 @@
+<h1>Edit Student</h1>
+
+<%= form_for(student, {action: studentPath({ student_id: student.ID }), method: "PUT"}) { %>
+  <%= partial("students/form.html") %>
+  <a href="<%= studentsPath({ student_id: student.ID }) %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>

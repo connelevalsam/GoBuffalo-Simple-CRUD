@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Buffalo - Simple Crud</title>
+    <link rel="stylesheet" href="/assets/application.css" type="text/css" media="all" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="<%= authenticity_token %>" />
+  </head>
+  <body  onload="hideModal()">
+
+    <div class="container">
+      <%= partial("flash.html") %>
+      <%= yield %>
+    </div>
+
+    <script src="/assets/application.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

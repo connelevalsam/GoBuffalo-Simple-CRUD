@@ -1,0 +1,8 @@
+create_table("lecturers", func(t) {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("school", "string", {})
+	t.Column("full_name", "string", {})
+	t.Column("email", "string", {})
+	t.Column("department", "string", {})
+	t.Column("age", "integer", {})
+})

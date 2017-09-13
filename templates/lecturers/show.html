@@ -1,0 +1,23 @@
+<h1>Lecturer#Show</h1>
+
+<ul class="list-unstyled list-inline">
+  <li><a href="<%= lecturersPath() %>" class="btn btn-info">Back to all Lecturers</a></li>
+  <li><a href="<%= editLecturerPath({ lecturer_id: lecturer.ID })%>" class="btn btn-warning">Edit</a></li>
+  <li><a href="<%= lecturerPath({ lecturer_id: lecturer.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+</ul>
+
+<p>
+  <strong>School</strong>: <%= lecturer.School %>
+</p>
+<p>
+  <strong>FullName</strong>: <%= lecturer.FullName %>
+</p>
+<p>
+  <strong>Email</strong>: <%= lecturer.Email %>
+</p>
+<p>
+  <strong>Department</strong>: <%= lecturer.Department %>
+</p>
+<p>
+  <strong>Age</strong>: <%= lecturer.Age %>
+</p>
