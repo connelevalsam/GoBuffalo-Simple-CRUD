@@ -59,7 +59,10 @@ func App() *buffalo.App {
 		app.ServeFiles("/assets", packr.NewBox("../public/assets"))
 		app.Resource("/lecturers", LecturersResource{&buffalo.BaseResource{}})
 		app.Resource("/students", StudentsResource{&buffalo.BaseResource{}})
-		app.GET("/auth/update", AuthUpdate)
+
+		app.GET("/login", UserLogin)
+		app.GET("/signin", AdminLoginHandler)
+		app.POST("/signin", AdminHandler)
 	}
 
 	return app
