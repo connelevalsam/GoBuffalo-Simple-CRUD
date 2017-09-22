@@ -1,18 +1,17 @@
 <!-- Login Modal -->
 <div class="bg-light-gray modal vh-75 fixed top-2 w-100">
-    <span class="f3 fw4 bg-red ph2 br2 bn pointer grow close-modal" title="Close">&times;</span>
     <!-- Login Modal Content -->
-    <form class="animate bg-light-grey" name="login-form" action="/">
+    <%= form_for(admin, {action: signinPath(), class: "animate bg-light-grey"}) { %>
         <div class="tc ph2 ph4-ns">
-            <input type="text" class="w-50 br2 b--black-10 pv2 mv2" placeholder="enter username" name="uname" required><br>
+            <%= f.InputTag("username", {class: "w-50 br2 b--black-10 pv2 mv2"}) %><br>
 
-            <input type="password" class="w-50 br2 b--black-10 pv2 mv2" placeholder="enter password" name="pword" required><br>
+            <%= f.InputTag("Password", {class: "w-50 br2 b--black-10 pv2 mv2", type: "password"}) %><br>
 
             <button type="submit" class="pointer grow bg-green white bn br2 pa2 mh2">Login</button>
-            <input type="checkbox" checked="checked"> Remember me
+            <!--<%= f.Check %> Remember me-->
         </div>
         <div class="tc pt pt4-ns">
             <span class="br2 b--black-10 pv2 mh2">Forgot <a href="#">password?</a></span>
         </div>
-    </form>
+    <% } %>
 </div>
