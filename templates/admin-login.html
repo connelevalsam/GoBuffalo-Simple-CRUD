@@ -15,3 +15,13 @@
         </div>
     <% } %>
 </div>
+<!-- The form can be written in its simplest form like this -->
+<div class="bg-light-gray modal vh-75 fixed top-2 w-100">
+    <form action="/signin" method="POST">
+          <input name="username" type="text" placeholder="username" class="ba b--gray pa2 bw1 br1"/>
+        <input name="password" type="password" placeholder="username" class="ba b--gray pa2 bw1 br1"/>
+        <input type="submit" name="login" value="Login"/>
+    </form>
+    
+</div>
+<!-- This form will submit to `/signin` route where AdminHandler() will handle the request... -->
