@@ -24,10 +24,17 @@ func AdminHandler(c buffalo.Context) error {
 		return errors.WithStack(err)
 	}
 	tx := c.Value("tx").(*pop.Connection)
-
+	// here you have both the username and password in "admin"
+	
 	// find an admin with the username
-	err := tx.Where("username = ?", strings.ToLower(admin.Username)).First(admin)
-
+// 	err := tx.Where("username = ?", strings.ToLower(admin.Username)).First(admin)
+	
+	// find an admin with the username and save it in another variable, you dont want to loose the submited data by overwriting "admin"
+	dbAdmin := &models.Admin{}
+	err := tx.Where("username = ?", strings.ToLower(admin.Username)).First(dbAdmin)
+	// admin = the data user submitted
+	// dbAdmin = correct username and password from the db if the username submitted by user is correct, if username submitted is incorrect dbAdmin.Username will be nil
+	
 	// helper function to handle bad attempts
 	bad := func() error {
 		c.Set("admin", admin)
@@ -45,14 +52,21 @@ func AdminHandler(c buffalo.Context) error {
 		return errors.WithStack(err)
 	}
 
+	// you dont have to query the DB anymore, just compare admin.Password to dbAdmin.Password
 	// confirm that the given password matches the password from the db
-	err = tx.Where("password = ?", admin.Password).First(admin)
-	if err != nil {
-		if errors.Cause(err) == sql.ErrNoRows {
-			// couldn't find an user with the supplied password address.
-			return bad()
-		}
+// 	err = tx.Where("password = ?", admin.Password).First(admin)
+// 	if err != nil {
+// 		if errors.Cause(err) == sql.ErrNoRows {
+// 			// couldn't find an user with the supplied password address.
+// 			return bad()
+// 		}
+// 	}
+	
+	if admin.Password != dbAdmin.Password {
+		// username matches but password does not match...
+		return bad()
 	}
+	// here the user has successfully logged in with correct details
 	c.Session().Set("current_user_id", admin.ID)
 	c.Flash().Add("success", "Welcome Back!")
 
